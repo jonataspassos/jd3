@@ -1,3 +1,81 @@
+<html >
+<head >
+<title >
+
+.:: Visualization ::.
+</title>
+<style>
+.container {
+	background-color:white;
+}
+</style>
+
+
+</head>
+<body >
+<div class="container" 
+ style = "border:6; color:#0000ff; ">
+<svg width="640" height="480" >
+<g id="dynamic" >
+<g class="in" >
+
+
+</g>
+
+
+</g>
+<g id="static" >
+<g class="in" >
+
+
+</g>
+
+
+</g>
+
+
+</svg>
+
+
+</div>
+<div id="panel-control" class="panel-control" >
+<button onclick="zoom(true)" >
+
+zoom in
+</button>
+<button onclick="zoom(false)" >
+
+zoom out
+</button>
+<button onclick="translateX(true)" >
+
+X +
+</button>
+<button onclick="translateX(false)" >
+
+X -
+</button>
+<button onclick="translateY(true)" >
+
+Y +
+</button>
+<button onclick="translateY(false)" >
+
+Y -
+</button>
+<button onclick="reset()" >
+
+reset
+</button>
+<button onclick="help()" >
+
+help
+</button>
+
+
+</div>
+<script >
+
 var zoom, translateX, translateY, reset, help;
 
 (function () {
@@ -138,7 +216,7 @@ var zoom, translateX, translateY, reset, help;
         }
     }
 	
-	document.querySelector("svg").addEventListener("wheel", function(_event_){
+	document.querySelector("svg").addEventListener("wheel", function(__event__){
         var winObj = checkEventObj(_event_);
         if(winObj.ctrlKey){//Zoom
             zoom(winObj.deltaY>0)
@@ -147,8 +225,6 @@ var zoom, translateX, translateY, reset, help;
         }else{//y Translation
             translateY(winObj.deltaY>0)
         }
-        winObj.returnValue = false;
-        return false;
     });
 	
     var zoonables = document.querySelectorAll(".expression");
@@ -175,3 +251,10 @@ var zoom, translateX, translateY, reset, help;
         }, false);
     });
 })()
+</script>
+
+
+</body>
+
+
+</html>

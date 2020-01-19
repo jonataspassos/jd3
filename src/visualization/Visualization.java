@@ -93,7 +93,7 @@ public class Visualization {
 	}
 	
 	private String javaScript() {
-		return JD3String.fileIn("files\\visualization.js");
+		return JD3String.fileIn("..\\jd3\\files\\visualization.js");
 	}
 
 	@Override

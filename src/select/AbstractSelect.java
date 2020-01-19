@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+import function.JD3String;
+
 public abstract class AbstractSelect {
 	protected abstract void setD(Object d);
 	protected abstract void setI(int i);
@@ -37,32 +39,7 @@ public abstract class AbstractSelect {
 		String content = "" + this;
 		
 
-		try {
-			File file = new File(path);
-
-			try {
-				if (file.createNewFile()) {
-					//System.out.println("File create");
-				} else {
-					//System.out.println("File already exists!");
-				}
-			} catch (IOException e) {
-				System.out.println(e.getMessage());
-			}
-
-			// Java 7
-			Files.write(Paths.get(path), content.getBytes());
-
-			// encoding
-			// Files.write(Paths.get(path), content.getBytes(StandardCharsets.UTF_8));
-
-			// extra options
-			// Files.write(Paths.get(path), content.getBytes(),
-			// StandardOpenOption.CREATE, StandardOpenOption.APPEND);
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		JD3String.fileOut(path, content);
 		return this;
 	}
 	

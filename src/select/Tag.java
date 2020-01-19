@@ -6,6 +6,8 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
+import function.JD3String;
+
 public class Tag {
 	// --------------------Atributos----------------------------//
 	private String name;
@@ -241,35 +243,7 @@ public class Tag {
 	}
 	
 	public Tag fileOut(String path) {
-		String content = "" + this;
-		
-
-		try {
-			File file = new File(path);
-
-			try {
-				if (file.createNewFile()) {
-					//System.out.println("File create");
-				} else {
-					//System.out.println("File already exists!");
-				}
-			} catch (IOException e) {
-				System.out.println(e.getMessage());
-			}
-
-			// Java 7
-			Files.write(Paths.get(path), content.getBytes());
-
-			// encoding
-			// Files.write(Paths.get(path), content.getBytes(StandardCharsets.UTF_8));
-
-			// extra options
-			// Files.write(Paths.get(path), content.getBytes(),
-			// StandardOpenOption.CREATE, StandardOpenOption.APPEND);
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		JD3String.fileOut(path, "" + this);
 		return this;
 	}
 }
